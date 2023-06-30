@@ -13,3 +13,8 @@
 
 ![image](https://github.com/EribaldoOliveira/interfaceGrafica/assets/114995774/20bbfece-3f92-457b-b3d7-87ae86a23484)
 
+![image](https://github.com/EribaldoOliveira/interfaceGrafica/assets/114995774/2bc2d699-d212-436a-a30c-f54716e00689)
+
+![image](https://github.com/EribaldoOliveira/interfaceGrafica/assets/114995774/01b76492-420a-4fc2-a931-b7e3bcbb8e08)
+
+
