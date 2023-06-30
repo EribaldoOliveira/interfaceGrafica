@@ -1,4 +1,4 @@
-# interfaceGrafica
+# interface Grafica
 
 # Telas em códigos Java
 
