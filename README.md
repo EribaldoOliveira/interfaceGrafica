@@ -1,7 +1,7 @@
 # interface Grafica - Telas em códigos Java
 
 ## - Tela Instalação e Teste
-![image](https://github.com/EribaldoOliveira/interfaceGrafica/assets/114995774/0d1fb43a-0379-4aa7-895a-a9a6781cf4a7)
+![image](https://github.com/EribaldoOliveira/interfaceGrafica/assets/114995774/dab43f00-1bbb-41a5-bc2b-297423a650b8)
 
 
 ## - Tela Nome e Sobrenome
