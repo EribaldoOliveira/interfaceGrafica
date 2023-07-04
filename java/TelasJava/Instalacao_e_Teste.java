@@ -47,7 +47,7 @@ public class Instalacao_e_Teste {
 		JLabel lblNewLabel = new JLabel("Instalação e Teste");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 60));
-		lblNewLabel.setBounds(88, 152, 505, 79);
+		lblNewLabel.setBounds(0, 152, 860, 79);
 		frmPrimeirosPassos.getContentPane().add(lblNewLabel);
 	}
 }
