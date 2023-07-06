@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
@@ -13,8 +15,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class JTable_Inserindo_Dados {
+public class JTable_Alterar_Dados {
 
 	private JFrame frmTrabalhandoComJtable;
 	private JTextField txtNome;
@@ -29,7 +33,7 @@ public class JTable_Inserindo_Dados {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JTable_Inserindo_Dados window = new JTable_Inserindo_Dados();
+					JTable_Alterar_Dados window = new JTable_Alterar_Dados();
 					window.frmTrabalhandoComJtable.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +45,7 @@ public class JTable_Inserindo_Dados {
 	/**
 	 * Create the application.
 	 */
-	public JTable_Inserindo_Dados() {
+	public JTable_Alterar_Dados() {
 		initialize();
 	}
 
@@ -55,6 +59,9 @@ public class JTable_Inserindo_Dados {
 		frmTrabalhandoComJtable.setBounds(100, 100, 716, 460);
 		frmTrabalhandoComJtable.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTrabalhandoComJtable.getContentPane().setLayout(null);
+		
+		//Centralizar a tela
+		frmTrabalhandoComJtable.setLocationRelativeTo(null);
 		
 		JLabel lblNewLabel = new JLabel("Nome");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -94,6 +101,26 @@ public class JTable_Inserindo_Dados {
 		frmTrabalhandoComJtable.getContentPane().add(scrollPane);
 		
 		tabelaNomes = new JTable();
+		tabelaNomes.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				//DefaultTableModel - Biblioteca para trabalharmos com a tabela
+				DefaultTableModel configacoesTabela = (DefaultTableModel)tabelaNomes.getModel();
+				
+				//Pega o número da linha selecionada
+				int selecionaNumeroLinha = tabelaNomes.getSelectedRow();
+				
+				//selecionaNumeroLinha - Número da linha
+				//0 - Número da coluna
+				//toString - Converte o objeto para texto
+				//getValueAt - Pega o valor da linha
+				txtNome.setText(configacoesTabela.getValueAt(selecionaNumeroLinha, 0).toString());
+				txtSobrenome.setText(configacoesTabela.getValueAt(selecionaNumeroLinha, 1).toString());
+				txtIdade.setText(configacoesTabela.getValueAt(selecionaNumeroLinha, 2).toString());
+				
+			}
+		});
 		tabelaNomes.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		scrollPane.setViewportView(tabelaNomes);
 		tabelaNomes.setModel(new DefaultTableModel(
@@ -106,7 +133,7 @@ public class JTable_Inserindo_Dados {
 		//Aumento a largura das linhas
 		tabelaNomes.setRowHeight(30);
 		
-		JButton btnSalvar = new JButton("Inserir Linha");
+		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -126,8 +153,44 @@ public class JTable_Inserindo_Dados {
 			}
 		});
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		btnSalvar.setBounds(468, 355, 191, 40);
+		btnSalvar.setBounds(36, 355, 192, 40);
 		frmTrabalhandoComJtable.getContentPane().add(btnSalvar);
+		
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//DefaultTableModel - Biblioteca para trabalharmos com a tabela
+				DefaultTableModel modelo = (DefaultTableModel)tabelaNomes.getModel();
+				
+				//Pega o número da linha que está selecionada
+				int linha = tabelaNomes.getSelectedRow();
+				
+				//if - se
+				if(linha >= 0) {
+					
+					//modelo - DefaultTableModel
+					//setValueAt - colocar/alterar uma informação
+					//txtNome.getText() - Pegando o texto que está no campo do txt
+					//linha - O número da linha que eu selecionei
+					//0 - O número da coluna que vou altera a informação
+					modelo.setValueAt(txtNome.getText(), linha, 0);
+					modelo.setValueAt(txtSobrenome.getText(), linha, 1);
+					modelo.setValueAt(txtIdade.getText(), linha, 2);
+				
+				//else - senão
+				}else {
+					
+					JOptionPane.showMessageDialog(null, "Por favor, selecione uma linha para alterar a informação");
+					
+				}
+				
+				
+			}
+		});
+		btnAlterar.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		btnAlterar.setBounds(241, 355, 192, 40);
+		frmTrabalhandoComJtable.getContentPane().add(btnAlterar);
 		
 	}
 }
