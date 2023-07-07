@@ -21,6 +21,8 @@
 
 ![image](https://github.com/EribaldoOliveira/interfaceGrafica/assets/114995774/2729f4b1-d6c7-4f2b-aa33-17288d0579a1)
 
+![image](https://github.com/EribaldoOliveira/interfaceGrafica/assets/114995774/2a2a0d6f-4724-482d-9f96-422d3e16e93b)
+
 ![image](https://github.com/EribaldoOliveira/interfaceGrafica/assets/114995774/ef1e7449-5657-46f6-9b3a-c3b3711bf226)
 
 
